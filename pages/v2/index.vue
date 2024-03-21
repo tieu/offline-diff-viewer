@@ -109,6 +109,9 @@ export default Vue.extend({
     const rhs = document.getElementById('rhs')
     const theme = this.$cookies.isDarkMode ? 'vs-dark' : 'light'
     const monacoEditorOptions = getMonacoEditorDefaultOptions(theme)
+    
+    monacoEditorOptions.diffAlgorithm = 'legacy';
+    
     loader.init().then((monaco) => {
       if (lhs) {
         this.lhsEditor = monaco.editor.create(lhs, {
